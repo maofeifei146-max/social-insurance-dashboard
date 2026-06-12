@@ -289,9 +289,9 @@ function render() {
 
   // Summary cards
   const sc = document.getElementById('sumCards');
-  sc.innerHTML = '<div class="sc"><div class="sl">原成本（万元/年）</div><div class="sv">'+f(grandCurPer+grandCurCom)+'</div></div>'
-    + '<div class="sc"><div class="sl">新增成本（万元/年）</div><div class="sv">'+f((grandNewPer-grandCurPer)+(grandNewCom-grandCurCom))+'</div></div>'
-    + '<div class="sc"><div class="sl">社保总成本（万元/年）</div><div class="sv">'+f(grandCurPer+grandCurCom+gChg)+'</div></div>';
+  sc.innerHTML = '<div class="sc"><div class="sl">原成本（万元/年）</div><div class="sv">'+f(grandCurCom)+'</div></div>'
+    + '<div class="sc"><div class="sl">新增成本（万元/年）</div><div class="sv">'+f(grandNewCom-grandCurCom)+'</div></div>'
+    + '<div class="sc"><div class="sl">社保总成本（万元/年）</div><div class="sv">'+f(grandNewPer+grandNewCom)+'</div></div>';
 }
 
 function toggleCity(city) {
