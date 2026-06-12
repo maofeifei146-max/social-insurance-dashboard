@@ -79,7 +79,7 @@ tbody td{padding:2px 2px;font-size:12px;text-align:center}
 </div>
 <div class="wrap">
 <div class="title-row">
-<h2 id="tblTitle"></h2>
+
 <div class="summary-cards" id="sumCards"></div>
 </div>
 <div class="tbl-wrap">
@@ -122,7 +122,7 @@ for (const city of CITIES) {
 }
 
 document.getElementById('topInfo').textContent = '共 ' + totalN + ' 人 | ' + CITIES.length + ' 个城市';
-document.getElementById('tblTitle').textContent = '社保成本测算看板';
+
 
 function V(v){return(v==null||v!==v)?0:v}
 function clamp(base, lo, hi) { return Math.max(lo, Math.min(hi, base)); }
