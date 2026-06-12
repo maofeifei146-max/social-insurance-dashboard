@@ -260,7 +260,7 @@ function render() {
 
       h += '<tr class="ent-row'+(isOpen?' show':'')+'" data-parent="'+i+'">';
       h += '<td></td>';
-      h += '<td>'+ent+'</td>';
+      h += '<td>'+ent.replace(/\([^)]*\)/g,'')+'</td>';
       h += '<td></td><td></td>';
       h += '<td>'+en+'</td>';
       h += '<td>'+fi(eAvgSal)+'</td>';
