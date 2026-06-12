@@ -282,7 +282,7 @@ function render() {
   h += '<td></td><td>合计</td><td></td><td></td><td>'+grandN+'</td><td></td><td></td><td></td><td></td>';
   h += '<td>'+f(grandCurPer)+'</td><td>'+f(grandCurCom)+'</td>';
   h += '<td>'+f(grandNewPer-grandCurPer)+'</td><td>'+f(grandNewCom-grandCurCom)+'</td>';
-  h += '<td class="'+(gChg>0.01?'chg-up':gChg<-0.01?'chg-down':'')+'">'+(gChg>0?'+':'')+f(gChg)+'</td>';
+  h += '<td>'+f(grandNewPer+grandNewCom)+'</td>';
   h += '</tr>';
 
   tbody.innerHTML = h;
