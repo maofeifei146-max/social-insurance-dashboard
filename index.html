@@ -86,7 +86,7 @@ tbody td{padding:2px 2px;font-size:12px;text-align:center}
 <table id="mainTbl">
 <thead><tr>
 <th rowspan="2" class="sortable" onclick="sortBy(0)">序号<span class="sa" id="sa0"></span></th><th rowspan="2" class="sortable" onclick="sortBy(1)">城市<span class="sa" id="sa1"></span></th><th rowspan="2" class="sortable" onclick="sortBy(2)">缴纳下限<span class="sa" id="sa2"></span></th><th rowspan="2" class="sortable" onclick="sortBy(3)">缴纳上限<span class="sa" id="sa3"></span></th><th rowspan="2" class="sortable" onclick="sortBy(4)">在保人数<span class="sa" id="sa4"></span></th><th rowspan="2" class="sortable" onclick="sortBy(5)">月均工资<span class="sa" id="sa5"></span></th><th rowspan="2" class="sortable" onclick="sortBy(6)">月均基数<span class="sa" id="sa6"></span></th><th rowspan="2" class="sortable" onclick="sortBy(7)">当前缴纳比例<span class="sa" id="sa7"></span></th><th rowspan="2">缴纳比例</th>
-<th colspan="2" class="grp-before">原成本(万元/年)</th><th colspan="2" class="grp-after">新增成本(万元/年)</th><th rowspan="2" class="sortable" onclick="sortBy(12)">社保总成本<span class="sa" id="sa12"></span></th>
+<th colspan="2" class="grp-before">原成本(万元/年)</th><th colspan="2" class="grp-after">新增成本(万元/年)</th><th rowspan="2" class="sortable" onclick="sortBy(12)">总成本<span class="sa" id="sa12"></span></th>
 </tr><tr>
 <th class="grp-before sortable" onclick="sortBy(8)">个人<span class="sa" id="sa8"></span></th><th class="grp-before sortable" onclick="sortBy(9)">公司<span class="sa" id="sa9"></span></th><th class="grp-after sortable" onclick="sortBy(10)">个人<span class="sa" id="sa10"></span></th><th class="grp-after sortable" onclick="sortBy(11)">公司<span class="sa" id="sa11"></span></th>
 </tr></thead>
@@ -291,7 +291,7 @@ function render() {
   const sc = document.getElementById('sumCards');
   sc.innerHTML = '<div class="sc"><div class="sl">原成本（万元/年）</div><div class="sv">'+f(grandCurCom)+'</div></div>'
     + '<div class="sc"><div class="sl">新增成本（万元/年）</div><div class="sv">'+f(grandNewCom-grandCurCom)+'</div></div>'
-    + '<div class="sc"><div class="sl">社保总成本（万元/年）</div><div class="sv">'+f(grandNewCom)+'</div></div>';
+    + '<div class="sc"><div class="sl">总成本（万元/年）</div><div class="sv">'+f(grandNewCom)+'</div></div>';
 }
 
 function toggleCity(city) {
