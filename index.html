@@ -230,7 +230,7 @@ function render() {
     const ratioVal = cityRatios[city] !== null ? cityRatios[city] : '';
 
     h += '<tr class="city-row'+(isOpen?' open':'')+'" onclick="toggleCity(\''+city.replace(/'/g,"\\'")+'\')" data-city="'+i+'">';
-    h += '<td>'+(i+1)+'</td>';
+    h += '<td>'+(si+1)+'</td>';
     const lim=LIMITS[city]||[0,0];
     h += '<td><span class="arrow">'+(isOpen?'▼':'▶')+'</span>'+city+'</td>';
     h += '<td>'+lim[0]+'</td><td>'+lim[1]+'</td>';
