@@ -121,6 +121,7 @@ for (const city of CITIES) {
   cityRatios[city] = 100;
 }
 
+document.getElementById('sa4').textContent = ' ▼';
 document.getElementById('topInfo').textContent = '共 ' + totalN + ' 人 | ' + CITIES.length + ' 个城市';
 
 
@@ -157,7 +158,7 @@ function getEffPct(city) {
   return cityRatios[city] !== null ? cityRatios[city] : 100;
 }
 
-let sortCol = -1, sortDir = 1; // -1=no sort, sortDir: 1=asc, -1=desc
+let sortCol = 4, sortDir = -1; // default: sort by 在保人数 desc
 
 function sortBy(col) {
   if (sortCol === col) sortDir = -sortDir;
