@@ -88,7 +88,7 @@ tbody td{padding:2px 2px;font-size:12px;text-align:center}
 <th rowspan="2" class="sortable" onclick="sortBy(0)">序号<span class="sa" id="sa0"></span></th><th rowspan="2" class="sortable" onclick="sortBy(1)">城市<span class="sa" id="sa1"></span></th><th rowspan="2" class="sortable" onclick="sortBy(2)">缴纳下限<span class="sa" id="sa2"></span></th><th rowspan="2" class="sortable" onclick="sortBy(3)">缴纳上限<span class="sa" id="sa3"></span></th><th rowspan="2" class="sortable" onclick="sortBy(4)">在保人数<span class="sa" id="sa4"></span></th><th rowspan="2" class="sortable" onclick="sortBy(5)">月均工资<span class="sa" id="sa5"></span></th><th rowspan="2" class="sortable" onclick="sortBy(6)">月均基数<span class="sa" id="sa6"></span></th><th rowspan="2" class="sortable" onclick="sortBy(7)">当前缴纳比例<span class="sa" id="sa7"></span></th><th rowspan="2">缴纳比例</th>
 <th colspan="2" class="grp-before">调整前(万元/年)</th><th colspan="2" class="grp-after">调整后(万元/年)</th><th rowspan="2" class="sortable" onclick="sortBy(12)">成本变化<span class="sa" id="sa12"></span></th>
 </tr><tr>
-<th class="grp-before sortable" onclick="sortBy(8)">个人<span class="sa" id="sa8"></span></th><th class="grp-before sortable" onclick="sortBy(9)">公司<span class="sa" id="sa9"></span></th><th class="grp-after sortable" onclick="sortBy(10)">个人<span class="sa" id="sa10"></span></th><th class="grp-after sortable" onclick="sortBy(11)">公司<span class="sa" id="sa11"></span></th>
+<th class="grp-before sortable" onclick="sortBy(8)">个人<span class="sa" id="sa8"></span></th><th class="grp-before sortable" onclick="sortBy(9)">公司<span class="sa" id="sa9"></span></th><th class="grp-after sortable" onclick="sortBy(10)">新增个人<span class="sa" id="sa10"></span></th><th class="grp-after sortable" onclick="sortBy(11)">新增公司<span class="sa" id="sa11"></span></th>
 </tr></thead>
 <tbody id="tblBody"></tbody>
 </table>
@@ -241,8 +241,8 @@ function render() {
     h += '<td onclick="event.stopPropagation()"><input class="ratio-input" type="number" min="0" max="100" value="'+(cityRatios[city]!==null?cityRatios[city]:100)+'" placeholder="100" onchange="setCityRatio(\''+city.replace(/'/g,"\\'")+'\''+',this.value)" onfocus="this.select()"></td>';
     h += '<td>'+f(cur.per)+'</td>';
     h += '<td>'+f(cur.com)+'</td>';
-    h += '<td>'+f(adj.per)+'</td>';
-    h += '<td>'+f(adj.com)+'</td>';
+    h += '<td>'+f(adj.per-cur.per)+'</td>';
+    h += '<td>'+f(adj.com-cur.com)+'</td>';
     h += '<td class="'+(chg>0.01?'chg-up':chg<-0.01?'chg-down':'')+'">'+(chg>0?'+':'')+f(chg)+'</td>';
     h += '</tr>';
 
@@ -268,8 +268,8 @@ function render() {
       h += '<td></td>';
       h += '<td>'+f(eCur.per)+'</td>';
       h += '<td>'+f(eCur.com)+'</td>';
-      h += '<td>'+f(eAdj.per)+'</td>';
-      h += '<td>'+f(eAdj.com)+'</td>';
+      h += '<td>'+f(eAdj.per-eCur.per)+'</td>';
+      h += '<td>'+f(eAdj.com-eCur.com)+'</td>';
       h += '<td class="'+(eChg>0.01?'chg-up':eChg<-0.01?'chg-down':'')+'">'+(eChg>0?'+':'')+f(eChg)+'</td>';
       h += '</tr>';
     }
@@ -289,7 +289,7 @@ function render() {
   // Summary cards
   const sc = document.getElementById('sumCards');
   sc.innerHTML = '<div class="sc"><div class="sl">调整前总成本（万元/年）</div><div class="sv">'+f(grandCurPer+grandCurCom)+'</div></div>'
-    + '<div class="sc"><div class="sl">调整后总成本（万元/年）</div><div class="sv">'+f(grandNewPer+grandNewCom)+'</div></div>'
+    + '<div class="sc"><div class="sl">调整后增加成本（万元/年）</div><div class="sv">'+f((grandNewPer-grandCurPer)+(grandNewCom-grandCurCom))+'</div></div>'
     + '<div class="sc"><div class="sl">成本增加（万元/年）</div><div class="sv '+(gChg>0?'up':'down')+'">'+(gChg>0?'+':'')+f(gChg)+'</div></div>';
 }
 
