@@ -246,11 +246,11 @@ function render() {
     h += '<td>'+fi(avgBase)+'</td>';
     h += '<td class="'+rateClass(rate)+'">'+rate.toFixed(0)+'%</td>';
     h += '<td onclick="event.stopPropagation()"><input class="ratio-input" type="number" min="0" max="100" value="'+(cityRatios[city]!==null?cityRatios[city]:100)+'" placeholder="100" onchange="setCityRatio(\''+city.replace(/'/g,"\\'")+'\''+',this.value)" onfocus="this.select()"></td>';
-    h += '<td>'+f(cur.per)+'</td>';
+    h += '<td>'+f(cur.per/n)+'</td>';
     h += '<td>'+f(cur.com)+'</td>';
-    h += '<td>'+f(adj.per-cur.per)+'</td>';
+    h += '<td>'+f((adj.per-cur.per)/n)+'</td>';
     h += '<td>'+f(adj.com-cur.com)+'</td>';
-    h += '<td>'+f(adj.com)+'</td>';
+    h += '<td style="color:#dc2626;font-weight:600">'+f(adj.com)+'</td>';
     h += '</tr>';
 
     // Entity rows
@@ -273,11 +273,11 @@ function render() {
       h += '<td>'+fi(eAvgBase)+'</td>';
       h += '<td class="'+rateClass(eRate)+'">'+eRate.toFixed(0)+'%</td>';
       h += '<td></td>';
-      h += '<td>'+f(eCur.per)+'</td>';
+      h += '<td>'+f(eCur.per/en)+'</td>';
       h += '<td>'+f(eCur.com)+'</td>';
-      h += '<td>'+f(eAdj.per-eCur.per)+'</td>';
+      h += '<td>'+f((eAdj.per-eCur.per)/en)+'</td>';
       h += '<td>'+f(eAdj.com-eCur.com)+'</td>';
-      h += '<td>'+f(eAdj.com)+'</td>';
+      h += '<td style="color:#dc2626;font-weight:600">'+f(eAdj.com)+'</td>';
       h += '</tr>';
     }
   }
@@ -286,9 +286,9 @@ function render() {
   const gChg = (grandNewPer+grandNewCom)-(grandCurPer+grandCurCom);
   h += '<tr class="total-row">';
   h += '<td></td><td>合计</td><td></td><td></td><td>'+grandN+'</td><td></td><td></td><td></td><td></td>';
-  h += '<td>'+f(grandCurPer)+'</td><td>'+f(grandCurCom)+'</td>';
-  h += '<td>'+f(grandNewPer-grandCurPer)+'</td><td>'+f(grandNewCom-grandCurCom)+'</td>';
-  h += '<td>'+f(grandNewCom)+'</td>';
+  h += '<td>'+f(grandCurPer/grandN)+'</td><td>'+f(grandCurCom)+'</td>';
+  h += '<td>'+f((grandNewPer-grandCurPer)/grandN)+'</td><td>'+f(grandNewCom-grandCurCom)+'</td>';
+  h += '<td style="color:#dc2626;font-weight:700">'+f(grandNewCom)+'</td>';
   h += '</tr>';
 
   tbody.innerHTML = h;
