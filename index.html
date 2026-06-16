@@ -250,7 +250,7 @@ function render() {
     h += '<td>'+f(cur.com)+'</td>';
     h += '<td>'+f(adj.per-cur.per)+'</td>';
     h += '<td>'+f(adj.com-cur.com)+'</td>';
-    h += '<td class="'+(chg>0.01?'chg-up':chg<-0.01?'chg-down':'')+'">'+(chg>0?'+':'')+f(chg)+'</td>';
+    h += '<td>'+f(adj.com)+'</td>';
     h += '</tr>';
 
     // Entity rows
@@ -277,7 +277,7 @@ function render() {
       h += '<td>'+f(eCur.com)+'</td>';
       h += '<td>'+f(eAdj.per-eCur.per)+'</td>';
       h += '<td>'+f(eAdj.com-eCur.com)+'</td>';
-      h += '<td class="'+(eChg>0.01?'chg-up':eChg<-0.01?'chg-down':'')+'">'+(eChg>0?'+':'')+f(eChg)+'</td>';
+      h += '<td>'+f(eAdj.com)+'</td>';
       h += '</tr>';
     }
   }
